@@ -58,7 +58,7 @@ margin-top: 10vh;
     align-items: center;
     background-color: #dfc2fc;
     position: relative;
-    top: 2vh;
+    top: 2.5vh;
     margin-left: 10vw;
     margin-right: 10vw;
     border-radius: 10px;

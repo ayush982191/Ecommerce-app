@@ -8,6 +8,7 @@ function Nav() {
   const [btnclick,setBtnClick] = useState(false);
   const hamburgerClick=()=>{
     setBtnClick((prev)=>!prev);
+    console.log("Clicking on hamburger");
   }
   return (
     <Container>
@@ -37,10 +38,9 @@ function Nav() {
 
       </ul>
       <div onClick={hamburgerClick} className={`hamburger`}>
-      {/* <CgMenu />
-      <CgClose /> */}
+      
       {
-        !btnclick ? <CgMenu /> :<CgClose />  
+        !btnclick ? <CgMenu className="navbarBtn" /> :<CgClose className="navbarBtn" />  
       }
       </div>
     </Container>
@@ -56,18 +56,20 @@ const Container = styled.div`
     width: 70vw; 
     align-items: center;
     .list{
-      list-style: none; 
-      /* text-decoration: none; */
-      /* NavLink{
-        text-decoration: none;
-      } */
+      list-style: none;  
     }
 
 
   }
   .hamburger{
+    background-color: red;
     display: none;
+    cursor: pointer;
   }
+  /* .navbarBtn{
+    cursor: pointer;
+  } */
+ 
   @media (max-width : 800px) {
     .lists{
       display: none;
