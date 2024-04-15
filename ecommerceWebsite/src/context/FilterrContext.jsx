@@ -30,6 +30,7 @@ const initialState = {
    //   --------------------------------
    const updateFilterValue=(details) =>{
     // console.log("coming ",e); 
+    console.log("inside updateFilter ",details);
     dispatch({type : "UPDATE_FILTER_VALUE",payload: {details,products} })
    }
 

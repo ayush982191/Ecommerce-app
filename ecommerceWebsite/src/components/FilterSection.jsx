@@ -9,6 +9,7 @@ function FilterSection() {
 
     const {updateFilterValue} = useFilterContextt();
     const listItem = ["All","Mobile","Accessories","Watch"];
+    const companyName = ["All","apple","samsung","nokia"];
     // const updateFilterValue= 9
     const handleChange = (e)=>{
         setTextValue(e.target.value);
@@ -23,6 +24,13 @@ function FilterSection() {
         setTextValue("");
         updateFilterValue({text:"text",value: ""});
     }
+    const handleCompanyFilter = (e)=>{
+        // if(e.target.value =="All")
+        // return ;
+        updateFilterValue({text : "company",value : e.target.value})
+        // console.log(e.target.value);
+
+    }
   return (
     <Container>
     <div className='inputBoxWrapper'>
@@ -36,16 +44,21 @@ function FilterSection() {
              <li onClick={()=>handleClick("Accessories")} >Accessories</li>
             <li onClick={()=>handleClick("Watch")} >Watch</li> */}
             {
-                listItem.map((item,idx)=><li onClick={()=>handleClick(item,idx)} className={idx==itemClickIndex ? "changeColor":""} >{item}</li> )
+                listItem.map((item,idx)=><li key={idx} onClick={()=>handleClick(item,idx)} className={idx==itemClickIndex ? "changeColor":""} >{item}</li> )
             }
         </ul>
     </div>
     <div>
-        <select name="item" id="">
-            <option  value="first">Select</option>
+        <select onClick={(e)=>handleCompanyFilter(e)} name="item" id="">
+            {/* <option  value="first">Select</option>
             <option  value="first">Samsung</option>
             <option  value="first">Apple</option>
-            <option  value="first">Nokia</option>
+            <option  value="first">Nokia</option> */}
+            {
+                companyName.map((item,idx)=>(
+                    <option key={idx}   value={item}>{item}</option>
+                ))
+            }
         </select>
     </div>
     

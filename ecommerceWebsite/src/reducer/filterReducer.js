@@ -59,7 +59,8 @@ const filterReducer =(state,action)=> {
         const {details,products} = action.payload;
         const {text,value}=details;
         let filterArray =[];
-        // console.log(products);
+        console.log(products);
+        console.log("text =",text,"value",value);
 
         // console.log("Value coming is ",e);
         if(text==="text"){
@@ -75,6 +76,14 @@ const filterReducer =(state,action)=> {
             }
             filterArray = products.filter((item)=>item?.category.toLowerCase()==value.toLowerCase());
              
+        }else if(text=="company"){
+            if(value.toLowerCase()=="all"){
+                return {
+                    ...state,
+                    filter_Products : products
+                }
+            }
+            filterArray=products.filter((item)=>item?.company.toLowerCase()==value.toLowerCase());
         }
         return {
             ...state,

@@ -11,6 +11,7 @@ function GridView({products=[{id:0}]}) {
   const handlePageChange = (pageNo)=>{
     setStartPage(pageNo);
   }
+  console.log(products);
   return (
     <Container>
         
