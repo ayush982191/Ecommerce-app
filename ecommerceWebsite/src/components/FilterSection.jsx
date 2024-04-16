@@ -63,11 +63,11 @@ function FilterSection() {
         </select>
     </div>
     
-    <div>
+    {/* <div>
         <h5>Price</h5>
         <input type="range" min="1" max="60000" value={priceBar} onChange={(e)=>setPriceBar(e.target.value)} id="myRange"/>
 
-    </div>
+    </div> */}
     <div className='clearFilter' >
         <button onClick={handleFilter} >CLEAR FILTER</button>
     </div>
