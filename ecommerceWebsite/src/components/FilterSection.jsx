@@ -10,8 +10,7 @@ function FilterSection() {
     const {updateFilterValue} = useFilterContextt();
     const listItem = ["All","Mobile","Accessories","Watch"];
     const companyName = ["All","apple","samsung","nokia"];
-    // const updateFilterValue= 9
-    const handleChange = (e)=>{
+     const handleChange = (e)=>{
         setTextValue(e.target.value);
         updateFilterValue({text:"text",value: e.target.value});
     }
@@ -51,10 +50,7 @@ function FilterSection() {
     </div>
     <div>
         <select onClick={(e)=>handleCompanyFilter(e)} name="item" id="">
-            {/* <option  value="first">Select</option>
-            <option  value="first">Samsung</option>
-            <option  value="first">Apple</option>
-            <option  value="first">Nokia</option> */}
+           
             {
                 companyName.map((item,idx)=>(
                     <option key={idx}   value={item}>{item}</option>
@@ -69,7 +65,7 @@ function FilterSection() {
 
     </div> */}
     <div className='clearFilter' >
-        <button onClick={handleFilter} >CLEAR FILTER</button>
+        <button className='FilterBtn' onClick={handleFilter} >CLEAR FILTER</button>
     </div>
 
         
@@ -142,6 +138,11 @@ const Container = styled.div`
         background-color: #bd6ff5;
     } 
    }
+}
+.FilterBtn{
+    font-size: 10px;
+    width: 15vw;
+    height: 5vh;
 }
     
 
