@@ -25,19 +25,19 @@ const initialState = {
    //   ---------------------------
      const sorting=(e)=>{
       //  console.log("coming inside filterContexr");
-      dispatch({type : "GET_SORT_VALUE",payload :{text : e.target.value,products}})
+      // console.log("sorting",e);
+
+      dispatch({type : "GET_SORT_VALUE",payload :{text : e.target.value,products:state.filter_Products}})
      }
    //   --------------------------------
    const updateFilterValue=(details) =>{
-    // console.log("coming ",e); 
-    console.log("inside updateFilter ",details);
-    dispatch({type : "UPDATE_FILTER_VALUE",payload: {details,products} })
+    //  console.log("filterProduct",state.filter_Products);
+     dispatch({type : "UPDATE_FILTER_VALUE",payload: {details,products:products,filter_Products:state.filter_Products} })
    }
-
+// ---------------------------- temp check 
      useEffect(()=>{
         dispatch({type : "LOAD_FILTER_PRODUCTS",payload : products})
-      //   console.log("state,",state);
-     },[products])
+      },[products])
 
     return <FilterrContextt.Provider value={{...state,setListView,setGridView,sorting,updateFilterValue}} >
         {children}

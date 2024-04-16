@@ -56,13 +56,14 @@ const filterReducer =(state,action)=> {
     //     }
     // }
     if(action.type == "UPDATE_FILTER_VALUE"){
-        const {details,products} = action.payload;
+        const {details,products,filter_Products} = action.payload;
         const {text,value}=details;
         let filterArray =[];
-        console.log(products);
-        console.log("text =",text,"value",value);
+        console.log( "product is ", products);
+        // console.log("text =",text,"value",value);
 
         // console.log("Value coming is ",e);
+        // temp----------------------------
         if(text==="text"){
             filterArray = products.filter((item)=>item?.name.toLowerCase().includes(value.toLowerCase()));
             

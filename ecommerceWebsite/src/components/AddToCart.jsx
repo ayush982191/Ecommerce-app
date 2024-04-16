@@ -2,12 +2,20 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CartAmountToggle from "./CartAmountToggle";
 import {NavLink} from "react-router-dom"
+// import {useCartContext} from "../reducer/cartReducer"
+import {useCartContext} from "../context/CartContext"
+ 
 
 function AddToCart(products) {
     const [index,setIndex] = useState(-1);
-    const [amount,setAmount] = useState(0);
-  console.log("produ", products);
+    const [amount,setAmount] = useState(1);
+  // console.log("produ", products);
+  const prodObj = products.products;
+  const {id,color,name} = products;
+  // console.log("iddd=",id);
   const {stock} = products.products;
+
+  const {addToCart} = useCartContext();
   // const {colors,stock,id} = products;
   // console.log(colors);
   // console.log();
@@ -38,7 +46,7 @@ function AddToCart(products) {
       setDecrease={setDecrease}
       setIncrease = {setIncrease}
       />
-      <NavLink to={'/cart'} ><button className="addToCartBtn">Add to cart</button></NavLink>
+      <NavLink to={'/cart'} onClick={()=>addToCart(amount,id,color,name,prodObj)}><button className="addToCartBtn">Add to cart</button></NavLink>
     </Container>
   );
 }

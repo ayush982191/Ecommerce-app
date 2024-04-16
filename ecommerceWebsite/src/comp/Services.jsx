@@ -46,6 +46,15 @@ justify-content: space-around;
     flex-direction: column;
     align-items: center;
     justify-content: center;  
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover{
+      background-color: #fcc9ff;
+      p{
+        font-size: 10px;
+      }
+    }
 }
 .detail-1{
   display: flex;

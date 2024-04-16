@@ -7,12 +7,12 @@ import { useFilterContextt } from "../context/FilterrContext";
 
 function ListView({ products=[{id:"",image:"",company:"",name:"",price:"",description:""}] }) {
     let totalPageNo = Math.ceil(products.length/5);
-    console.log("total Page no",products.length);
-    const [pageNo,setPageNo] = useState(1);
+    // console.log("total Page no",products.length);
+      const [pageNo,setPageNo] = useState(1);
     const handlePageChange = (pageNoClicked)=>{
       setPageNo(pageNoClicked);
     }
-
+   
   return (
     <Container>
       {/* <div className="views" >
@@ -20,23 +20,25 @@ function ListView({ products=[{id:"",image:"",company:"",name:"",price:"",descri
       <CiViewList style={{ fontSize: "24px",cursor:"pointer" }} onClick={showGridView} />
       </div> */}
 
-      {products.slice((pageNo-1)*5,pageNo*5).map((item) => (
+      {products.slice((pageNo-1)*5,pageNo*5).map((item,idx) => (
         // <NavLink to={`/singleproduct/${item?.id}`}>
           <div key={item?.id} className="boxWrapper" >
-            <div>
+            <NavLink style={{color:"black",textDecoration:"none"}} to={`/singleproduct/${item?.id}`} >
+            <div className="companyDetail" >
               <img className="itemImage" src={item?.image} alt="" />
               <button className="companyLogo">{item?.company}</button>
             </div>
             <div className="prodDetail">
              <div className="priceAndModal">
-             <p>{item?.name}</p>
-              <p>{item?.price}</p>
+             <p><b>{item?.name}</b></p>
+              <p><b>Rs:{item?.price}</b></p>
              </div>
-              <p>{item?.description}...</p>
-              <NavLink to={`/singleproduct/${item?.id}`} >
-              <button className="KnowMore">Know More</button>
-              </NavLink> 
+              <p>{  item?.description.slice(0,150)}...</p>
+              
+              <button className="KnowMore"  >Know More</button>
+               
             </div>
+            </NavLink>
            
           </div>
           
@@ -58,26 +60,40 @@ const Container = styled.div`
 .boxWrapper{
   display: flex;
   gap: 5vw;
-  margin: 2rem;
-  padding: 0.5rem;
+  margin: 4rem;
+  padding: 1rem;
   border: 2px solid #6c6c6c;
+  border-radius: 10px;
   flex-direction: column;
   justify-content: space-between;
   .itemImage{
     width: 20vw;
   }
 }
+.companyDetail{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  button{
+    padding: 1rem;
+    background-color:#fde1e3;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}
 .priceAndModal{
   display: flex;
   justify-content: space-around;
   width: 40vw;
+  /* color: black; */
 }
-.knowMore{
-  /* padding: 5rem; */
+ .prodDetail button{
   cursor: pointer;
-  /* background-color: pink; */
- 
-}
+  background-color: #f3c9ff;
+  border: none;
+  padding: 0.5rem;
+ }
 .pageBtn{
   display: flex;
   justify-content: center;

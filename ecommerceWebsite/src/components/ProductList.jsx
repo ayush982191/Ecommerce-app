@@ -13,7 +13,7 @@ function ProductList() {
   if(grid_view===true)
   return <GridView products={filter_Products}/>
   else
-  return <ListView products={filter_Products} />
+  return <ListView products={filter_Products}/>
 
 }
 

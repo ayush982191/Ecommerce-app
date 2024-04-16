@@ -45,6 +45,7 @@ padding: 2rem;
     justify-content: space-around;
     flex-wrap: wrap;
     .brandDetail{
+      cursor: pointer;
       img{
         width: 10vw;
       }

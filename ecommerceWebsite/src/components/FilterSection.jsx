@@ -18,7 +18,7 @@ function FilterSection() {
     const handleClick=(value,idx)=>{
         updateFilterValue({text:"category",value: value});
         setItemClickIndex(idx);
-        console.log("idx click i s",idx);
+        // console.log("idx click is",idx);
     }
     const handleFilter = ()=>{
         setTextValue("");
@@ -27,6 +27,7 @@ function FilterSection() {
     const handleCompanyFilter = (e)=>{
         // if(e.target.value =="All")
         // return ;
+        console.log("coming in handleFilter");
         updateFilterValue({text : "company",value : e.target.value})
         // console.log(e.target.value);
 
