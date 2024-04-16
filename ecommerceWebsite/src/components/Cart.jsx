@@ -49,9 +49,17 @@ function Cart() {
         <h1>Total =  &#8377;{totalAmount}  </h1>
       </div>
       <div>
-        <NavLink to="/product">
+        <div className="routingBtn">
+        <NavLink  to="/product">
         <button className='shopMore'>Shop More</button>
+         </NavLink>
+
+        <NavLink className="routingBtn" to="/checkout">
+         <button className='shopMore' >Proceed to checkout</button>
         </NavLink>
+
+        </div>
+        
       </div>
       
     </Contianer>
@@ -113,6 +121,11 @@ const Contianer = styled.div`
       border: 1px solid black;
     
     }
+  }
+  .routingBtn{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
   }
 
 `

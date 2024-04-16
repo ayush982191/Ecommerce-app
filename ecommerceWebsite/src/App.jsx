@@ -10,6 +10,7 @@ import ErrorPage from './components/ErrorPage'
 import Header from './comp/Header'
 import styled from 'styled-components'
 import Footer from './comp/Footer'
+import Checkout from './components/Checkout'
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path='/contact' element={<Contact/>} />
         <Route path='/singleproduct/:id' element={<SingleProduct/>} />
         <Route path='/cart' element={<Cart/>} />
+        <Route path='/checkout' element={<Checkout/>} />
+
         <Route path='*' element={<ErrorPage/>} />
       </Routes>
       <Footer/>
