@@ -52,7 +52,7 @@ justify-content: space-around;
     &:hover{
       background-color: #fcc9ff;
       p{
-        font-size: 10px;
+        /* font-size: 10px; */
       }
     }
 }

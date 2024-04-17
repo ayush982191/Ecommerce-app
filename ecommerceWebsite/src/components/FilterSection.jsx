@@ -4,8 +4,7 @@ import styled from "styled-components"
 
 function FilterSection() {
     const [textvalue,setTextValue] = useState("");
-    const [priceBar,setPriceBar] = useState(0);
-    const [itemClickIndex,setItemClickIndex] = useState(-1);
+     const [itemClickIndex,setItemClickIndex] = useState(-1);
 
     const {updateFilterValue} = useFilterContextt();
     const listItem = ["All","Mobile","Accessories","Watch"];
@@ -24,8 +23,6 @@ function FilterSection() {
         updateFilterValue({text:"text",value: ""});
     }
     const handleCompanyFilter = (e)=>{
-        // if(e.target.value =="All")
-        // return ;
         console.log("coming in handleFilter");
         updateFilterValue({text : "company",value : e.target.value})
         // console.log(e.target.value);
